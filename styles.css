@@ -1,0 +1,174 @@
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-background: rgb(242, 242, 242);
+    --black          : rgb(27, 36, 48);
+    --black-shade    : rgba(27, 36, 48, 0.5);
+    --cell-size      : 100px;
+    --marker-size    : calc(var(--cell-size) * 0.9)
+}
+
+body {
+    background-color: var(--main-background);
+    width           : 100w;
+    height          : 100vh;
+    color           : var(--black);
+}
+
+.centering {
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
+}
+
+.playground {
+    padding: 50px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.players {
+    display        : flex;
+    justify-content: space-between;
+    width          : 300px;
+}
+
+.player.active {
+    border-bottom: 2px solid var(--black);
+    font-weight  : bold;
+}
+
+.board {
+    display              : grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap             : 0px;
+    justify-content      : center;
+    align-content        : center;
+    margin               : 30px 0;
+    align-items          : center;
+}
+
+.box {
+    border         : 1px solid var(--black);
+    width          : var(--cell-size);
+    height         : var(--cell-size);
+    display        : flex;
+    justify-content: center;
+    align-content  : center;
+    align-items    : center;
+}
+
+.box:nth-child(1),
+.box:nth-child(2),
+.box:nth-child(3) {
+    border-top: none;
+}
+
+.box:nth-child(7),
+.box:nth-child(8),
+.box:nth-child(9) {
+    border-bottom: none;
+}
+
+.box:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.box:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.board .box.cross::after,
+.board .box.cross::before,
+.board.cross .box:not(.marked):hover::after,
+.board.cross .box:not(.marked):hover::before {
+    content         : '';
+    width           : calc(var(--cell-size) * 0.15);
+    height          : var(--marker-size);
+    background-color: var(--black);
+    position        : absolute;
+}
+
+.board .box.cross::after,
+.board.cross .box:not(.marked):hover::after {
+    transform: rotate(45deg);
+}
+
+.board .box.cross::before,
+.board.cross .box:not(.marked):hover::before {
+    transform: rotate(-45deg);
+}
+
+.board .box.marked:hover {
+    cursor: not-allowed;
+}
+
+.board.cross .box:not(.marked):hover::after,
+.board.cross .box:not(.marked):hover::before {
+    background-color: gainsboro;
+}
+
+.board .box.round::after,
+.board .box.round::before,
+.board.round .box:not(.marked):hover::after,
+.board.round .box:not(.marked):hover::before {
+    content         : '';
+    width           : var(--marker-size);
+    height          : var(--marker-size);
+    background-color: var(--black);
+    position        : absolute;
+    border-radius   : 50%;
+}
+
+.board .box.round::after,
+.board.round .box:not(.marked):hover::after {
+    width           : calc(var(--cell-size) * 0.6);
+    height          : calc(var(--cell-size) * 0.6);
+    background-color: var(--main-background);
+}
+
+.board.round .box:not(.marked):hover::before {
+    background-color: gainsboro;
+}
+
+button {
+    outline         : none;
+    border          : none;
+    color           : var(--main-background);
+    cursor          : pointer;
+    padding         : 8px 16px;
+    font-size       : 1.1rem;
+    background-color: var(--black);
+}
+
+.inveted-btn {
+    background-color: var(--main-background);
+    color           : var(--black);
+    margin-top: 30px;
+}
+.result {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+.result .container {
+    padding: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    color: var(--main-background);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.message {
+    font-size: 1.4rem;
+}
