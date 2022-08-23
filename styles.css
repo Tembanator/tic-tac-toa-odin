@@ -18,20 +18,21 @@ body {
     height          : 100vh;
     color           : var(--black);
 }
-
-.centering {
-    display        : flex;
-    justify-content: center;
-    align-items    : center;
-    flex-direction : column;
+.show {
+    display: block;
+}
+.hide {
+    display: none;
 }
 
 .playground {
     padding: 50px;
-    display: none;
     width: 100%;
     height: 100%;
     display: flex;
+    justify-content: center;
+    align-items    : center;
+    flex-direction : column;
 }
 
 .players {
@@ -156,7 +157,6 @@ button {
 .result {
     width: 100%;
     height: 100%;
-    display: none;
 }
 .result .container {
     padding: 50px;

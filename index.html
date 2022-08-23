@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=
@@ -7,32 +8,37 @@
     <link rel="stylesheet" href="styles.css">
     <title>Tic Tac Toa</title>
 </head>
+
 <body>
-    <div class="playground centering">
-        <div class="players">
-            <div class="player player-1 active">Player 1</div>
-            <div class="player player-2">Player 2</div>
+    <div class="playground-container show">
+        <div class="playground">
+            <div class="players">
+                <div class="player player-1">Player 1</div>
+                <div class="player player-2">Player 2</div>
+            </div>
+            <div class="board">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+            <button class="in-game">Restart</button>
         </div>
-        <div class="board">
-            <div class="box box1"></div>
-            <div class="box box2"></div>
-            <div class="box box3"></div>
-            <div class="box box4"></div>
-            <div class="box box5"></div>
-            <div class="box box6"></div>
-            <div class="box box7"></div>
-            <div class="box box8"></div>
-            <div class="box box9"></div>
-        </div>
-        <button>Restart</button>
     </div>
 
-    <div class="result">
+    <div class="result hide">
         <div class="container">
-
-            <div class="message">Player won/ Draw</div>
+            <div class="message">Draw</div>
             <button class="inveted-btn">Restart</button>
         </div>
     </div>
+
+    <script src="app.js"></script>
 </body>
+
 </html>
